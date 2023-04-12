@@ -8,17 +8,17 @@ spring:
       enabled: always # for multicolor console logging
   main:
     banner-mode: console # or maybe off
-  jpa:
-    generate-ddl: false # don't create missing tables!
-    show-sql: true # while testing
-    database-platform: org.hibernate.dialect.Oracle12cDialect
+#  jpa:
+#    generate-ddl: false # don't create missing tables!
+#    show-sql: true # while testing
+#    database-platform: org.hibernate.dialect.Oracle12cDialect
 
   # should be changed
-  datasource:
-    url:
-    username:
-    password:
-    driver-class-name: oracle.jdbc.OracleDriver
+#  datasource:
+#    url:
+#    username:
+#    password:
+#    driver-class-name: oracle.jdbc.OracleDriver
 
 ## Oracle UCP pooling - something wrong while testing, should be explored
 
