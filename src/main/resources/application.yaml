@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: TestRestAPI
+  config:
+    import: optional:configserver:${CONFIG_SERVER_URL:https://corebankingapitest.demirbank.kg/configserver}
+  output:
+    ansi:
+      enabled: always # for multicolor console logging
+  main:
+    banner-mode: console # or maybe off
+  jpa:
+    generate-ddl: false # don't create missing tables!
+    show-sql: true # while testing
+    database-platform: org.hibernate.dialect.Oracle12cDialect
+
+  # should be changed
+  datasource:
+    url:
+    username:
+    password:
+    driver-class-name: oracle.jdbc.OracleDriver
+
+## Oracle UCP pooling - something wrong while testing, should be explored
+
+  #spring.datasource.type=oracle.ucp.jdbc.PoolDataSource
+  #spring.datasource.oracleucp.connection-factory-class-name=oracle.jdbc.pool.OracleDataSource
+  #spring.datasource.oracleucp.sql-for-validate-connection=select count(*) from dual
+  #spring.datasource.oracleucp.connection-pool-name=BULKTRANSACTIONSAPI
+  #spring.datasource.oracleucp.initial-pool-size=5
+  #spring.datasource.oracleucp.min-pool-size=5
+  #spring.datasource.oracleucp.max-pool-size=15
+  #spring.datasource.oracleucp.validate-connection-on-borrow=false
+
+## SWAGGER API
+springdoc:
+  api-docs:
+    resolve-schema-properties: true
+  swagger-ui.path: /api/documentation
+  swagger-ui.operationsSorter: method
